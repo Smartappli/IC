@@ -165,6 +165,8 @@ public class Prof {
         return result;
     }
 
+
+
     /**
      *
      *
@@ -172,32 +174,26 @@ public class Prof {
      *
      *
      */
-
     public static ArrayList<Prof> select(String name) {
-        Connection data = DataAccess.connect();
-        PreparedStatement pstmt;
+        Connection conn = DataAccess.connect();
+        PreparedStatement prstm;
         ArrayList<Prof> result = new ArrayList<Prof>();
         try {
-            pstmt = data.prepareStatement("SELECT * FROM prof WHERE nomprof = ?;");
-            pstmt.setString(1, name);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                while(rs.next()) {
+            prstm = conn.prepareStatement("SELECT * FROM prof WHERE nomprof = ?;");
+            prstm.setString(1, name);
+            try (ResultSet rs = prstm.executeQuery()) {
+                while(rs.next()){
                     Prof prof = new Prof(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
                     result.add(prof);
                 }
+                prstm.close();
             }
-            data.close();
-        } catch (SQLException e) {
-            System.out.println(e);
+            conn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
         }
         return result;
     }
-
-
-
-
-
-
 
 
 

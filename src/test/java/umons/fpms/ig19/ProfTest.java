@@ -205,6 +205,8 @@ public class ProfTest {
         System.out.println(Prof.select().toString());
     }
 
+
+
     /**
      *
      *
@@ -215,19 +217,19 @@ public class ProfTest {
      *
      *
      */
-
     @Test
     @Order(10)
     public void testUpdate() {
-        System.out.println("Mise à jour d'un prof");
+        System.out.println("Prof.Test.update");
         int id = 3;
-        System.out.println("Avant mise à jour " + String.valueOf(id));
-        System.out.println(Prof.select(id).toString());
+        System.out.println("Before Updated the prof number " + String.valueOf(id));
+        System.out.println(Prof.select().toString());
         Prof instance = new Prof("TJM_PROF9", "TJM_Prof9", "12/12/1985", "Mons");
         instance.update(id);
-        System.out.println("Après mise à jour " + String.valueOf(id));
-        System.out.println(Prof.select(id).toString());
+        System.out.println("After Updated the prof id = " + String.valueOf(id));
+        System.out.println(Prof.select().toString());
     }
+
 
 
 
@@ -241,16 +243,16 @@ public class ProfTest {
      * Test of delete method, of class Prof.
      *
      */
-
     @Test
     @Order(11)
     public void testDelete() {
-        System.out.println("Suppression d'un prof");
+        System.out.println("Prof.Test.delete");
         int id = 5;
-        System.out.println("Avant suppression du prof " + String.valueOf(id));
+        System.out.println("Before Deleted the prof number " + String.valueOf(id));
         Prof.delete(id);
-        System.out.println("Suppression du prof " + String.valueOf(id));
+        System.out.println("After Deleted the prof number " + String.valueOf(id));
     }
+
 
 
 
@@ -279,13 +281,12 @@ public class ProfTest {
      * Test of select method, of class Prof.
      *
      */
-
     @Test
     @Order(13)
     public void testSelect_String() {
-        System.out.println("Test de sélection d'un pro par le nom");
-        String name = "NOFFABEL";
-        System.out.println(Prof.select(name).toString());
+        System.out.println("Prof.Test.select_name");
+        String n = "NOFFABEL";
+        System.out.println(Prof.select(n).toString());
     }
 
 

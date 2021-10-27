@@ -170,7 +170,17 @@ public class CoursTest {
      *
      *
      */
-
+    @Test
+    @Order(8)
+    public void testUpdate() {
+        System.out.println("Cours.Test.update");
+        int id = 3;
+        System.out.println("Before Updated");
+        System.out.println(Cours.select(id).toString());
+        cours.update(id);
+        System.out.println("After Updated");
+        System.out.println(Cours.select(id).toString());
+    }
 
 
     /**
@@ -181,7 +191,16 @@ public class CoursTest {
      *
      * Test of delete method, of class Cours.
      */
-
+    @Test
+    @Order(9)
+    public void testDelete() {
+        System.out.println("Cours.Test.delete");
+        int id = 7;
+        System.out.println(Cours.select().toString());
+        Cours.delete(id);
+        System.out.println("After Delete");
+        System.out.println(Cours.select().toString());
+    }
 
 
 

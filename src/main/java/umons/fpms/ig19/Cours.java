@@ -86,21 +86,23 @@ public class Cours {
      * Question 3 : public void update(int a)
      *
      */
+    public void update(int id) {
+        Connection conn = DataAccess.connect();
+        PreparedStatement prstm;
+        try {
+            prstm = conn.prepareStatement("UPDATE cours SET intitule = ?, duree = ? WHERE idcours = ?;");
+            prstm.setString(1, this.getIntitule());
+            prstm.setString(2, this.getDuree());
+            prstm.setInt(3, id);
+            prstm.executeUpdate();
+            System.out.println("Updated DONE !!!");
+            conn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
 
-     public void update(int id) {
-         Connection data = DataAccess.connect();
-         PreparedStatement pstmt;
-         try {
-             pstmt = data.prepareStatement("UPDATE cours set initule = ?, dure = ? WHERE idcours = ?;");
-             pstmt.setString(1, this.getIntitule());
-             pstmt.setString(2, this.getDuree());
-             pstmt.setInt(3, id);
-             System.out.println("Mise à jour réalisée !!!");
-             data.close();
-         } catch (SQLException e) {
-             System.out.println(e);
-         }
-     }
+
 
     /**
      *
@@ -108,21 +110,26 @@ public class Cours {
      * Question 3 : public void delete(int a)
      *
      */
-
-    public void delete(int id) {
-        Connection data = DataAccess.connect();
-        PreparedStatement pstmt;
+    public static void delete(int id) {
+        Connection conn = DataAccess.connect();
+        PreparedStatement prstm;
         try {
-            pstmt = data.prepareStatement("DELETE FROM cours WHERE idcours = ?;");
-            pstmt.setInt(1, id);
-            if (pstmt.execute()) {
-                System.out.println("Suppression faite !!!");
+            prstm = conn.prepareStatement("DELETE FROM cours WHERE idcours = ?;");
+            prstm.setInt(1, id);
+            if(prstm.execute()){
+                System.out.println("Deletion DONE !!!");
             }
-            data.close();
-        } catch (SQLException e) {
-            System.out.println(e);
+            conn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
         }
     }
+
+
+
+
+
+
 
     public static ArrayList<Cours> select() {
         Connection conn = DataAccess.connect();
