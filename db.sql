@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `user01_test_java`.`cours` (
   INDEX `fk_cours_prof_idx` (`idprof` ASC),
   CONSTRAINT `fk_cours_prof`
     FOREIGN KEY (`idprof`)
-    REFERENCES `test_java`.`prof` (`idprof`)
+    REFERENCES `user01_test_java`.`prof` (`idprof`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
