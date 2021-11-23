@@ -22,7 +22,7 @@ import org.apache.ibatis.jdbc.ScriptRunner;
  * @author noffa
  */
 public class DataAccess {
-    public static final String DBNAME = "test_java";
+    public static final String DBNAME = "user01_test_java";
     private static final String DBUSER = "user01";
     private static final String DBPASS = "user01";
     private static final String DBHOST = "webmaster01.ig.umons.ac.be";
