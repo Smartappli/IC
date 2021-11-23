@@ -24,8 +24,8 @@ import org.apache.ibatis.jdbc.ScriptRunner;
 public class DataAccess {
     public static final String DBNAME = "user01_test_java";
     private static final String DBUSER = "user01";
-    private static final String DBPASS = "user_01";
-    private static final String DBHOST = "webmaster01.ig.umons.ac.be";
+    private static final String DBPASS = "user01";
+    private static final String DBHOST = "webmaster01";
     private static final String DBSERVER = "mysql";
     private static final String DBPORT = "3306";
     private static final String DSN = "jdbc:" + DBSERVER + "://" + DBHOST + ":" + DBPORT + "/" + "?useUnicode=true" +
